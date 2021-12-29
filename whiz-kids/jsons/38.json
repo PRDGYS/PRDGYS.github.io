@@ -1,1 +1,1 @@
-{"name": "musicchief", "traits": ["card_games", "running", "biology"]}
+{"name": "WhizKid - musicchief", "description": "Celebrating young high-achievers.", "image": "https://www.prdgys.com/whiz-kids/work_in_silence.png", "attributes": [{"trait_type": "Education", "value": "astronomy"}, {"trait_type": "Outside Activity 1", "value": "chess"}, {"trait_type": "Outside Activity 2", "value": "football"}], "traits": ["chess", "football", "astronomy"]}

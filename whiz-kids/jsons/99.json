@@ -1,1 +1,1 @@
-{"name": "pledgepet", "traits": ["card_games", "football", "chemistry"]}
+{"name": "WhizKid - pledgepet", "description": "Celebrating young high-achievers.", "image": "https://www.prdgys.com/whiz-kids/work_in_silence.png", "attributes": [{"trait_type": "Education", "value": "computer_science"}, {"trait_type": "Outside Activity 1", "value": "partying"}, {"trait_type": "Outside Activity 2", "value": "hockey"}], "traits": ["partying", "hockey", "computer_science"]}
