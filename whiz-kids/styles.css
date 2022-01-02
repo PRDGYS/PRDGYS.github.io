@@ -8,6 +8,12 @@
   --header-height: 10vh;
 }
 
+html {
+  background: var(--main-diagtbr-gradient) no-repeat center center fixed;
+  /* Fallback, and for edges */
+  background-color: black;
+}
+
 /*
   Remove defaults.
 */
@@ -15,9 +21,8 @@ body {
   /* Makes sure that we can use the whole page. */
   margin: 0;
 
-  background: var(--main-diagtbr-gradient);
-  background-repeat: no-repeat;
-  background-attachment: fixed;
+  /* You can't scroll horizontally for the main body */
+  overflow-x: hidden;
 }
 
 /*
