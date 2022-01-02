@@ -1,0 +1,116 @@
+/*
+ The root selector allows the variables
+ to be accessible throughout the document
+*/
+:root {
+  --main-diagtbr-gradient: linear-gradient(to bottom right, #000000, #7209b7);
+  --main-ltor-gradient: linear-gradient(to right, #f7a9d6, #858ef8);
+  --header-height: 10vh;
+}
+
+/*
+  Remove defaults.
+*/
+body {
+  /* Makes sure that we can use the whole page. */
+  margin: 0;
+
+  background: var(--main-diagtbr-gradient);
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}
+
+/*
+  Setting the global fonts.
+*/
+h2, h3 {
+  font-family: 'Montserrat', sans-serif;
+}
+
+/*
+ Styles for all header related elements.
+*/
+.header {
+  position: fixed;
+  width: 100%;
+  height: var(--header-height);
+  top: 0;
+}
+
+.header-content {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+
+  width: 90%;
+  margin: 0 auto;
+}
+
+.header-content div {
+  display: flex;
+  flex-direction: row;
+}
+
+.header-right-side {
+  justify-content: space-around;
+}
+
+
+.header-content h2, .header-content h3 {
+   /*
+    Set a background gradient to the text
+    and make is dissappear to create a fake
+    gradient text color.
+
+    There's pretty poor support for
+    background-clip, so this may need to be
+    refactored at some point. 
+    See https://developer.mozilla.org/en-US/docs/Web/CSS/background-clip.
+  */
+  background-image: var(--main-ltor-gradient);
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+  transition: 0.5s ease-in-out;
+}
+
+.header-content :is(h2:hover, h3:hover) {
+  color: white;
+}
+
+/*
+  Styles for all body related elements.
+*/
+
+.content {
+  margin-top: var(--header-height);
+}
+
+.first-area {
+  width: 90%;
+  margin: 0 auto;
+}
+
+.first-area h4, .first-area p, .first-area li {
+  font-family: 'Montserrat', sans-serif;
+  color: white;
+}
+
+.first-area h4 {
+  text-align: center;
+}
+
+#first-area-logo {
+  height: 200px;
+  width: 200px;
+  display: block;
+  margin: 0 auto;
+}
+
+#slogan {
+  text-align: center;
+  background-image: var(--main-ltor-gradient);
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+}
