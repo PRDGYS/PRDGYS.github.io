@@ -10,3 +10,11 @@ document.addEventListener('scroll', function (e) {
     header.classList.remove('header-scrolled');
   }
 });
+
+/** 
+ * Event listener for the scrolling divs into view.
+ */
+document.getElementById('about-link').addEventListener('click', () => {
+  const aboutPage = document.getElementById('about-area');
+  aboutPage.scrollIntoView({behavior: 'smooth'});
+});

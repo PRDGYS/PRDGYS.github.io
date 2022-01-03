@@ -97,31 +97,80 @@ h2, h3 {
   margin-top: var(--header-height);
 }
 
-.first-area {
-  width: 90%;
-  margin: 0 auto;
+/*
+  Opening Content
+*/
+.opening-content {
+  /*
+  This is an approximation, ideally this should
+  100vh - the height of the header.
+  */
+  height: 40rem;
+
+  /*
+  We're using a nested flex box here. The content
+  div is a single column, which we use to center
+  the container vertically. Then the container 
+  itself is a horizontal flexbox.
+  */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
-.first-area h4, .first-area p, .first-area li {
-  font-family: 'Montserrat', sans-serif;
-  color: white;
+/* This is point to the container inside content */
+.opening-content > div {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+
+  width: 90vw;
+  margin: auto auto;
 }
 
-.first-area h4 {
-  text-align: center;
-}
-
-#first-area-logo {
-  height: 200px;
-  width: 200px;
-  display: block;
-  margin: 0 auto;
-}
-
-#slogan {
-  text-align: center;
+.opening-content h2 {
   background-image: var(--main-ltor-gradient);
   background-clip: text;
   -webkit-background-clip: text;
   color: transparent;
+
+  font-family: Montserrat, sans-serif;
+  font-weight: bold;
+  font-size: 4.5em;
+
+  margin-top: 0;
+}
+
+.opening-content p {
+  color: white;
+  font-family: Montserrat, sans-serif;
+  font-size: 1.2em;
+}
+
+#opening-content-img {
+  max-width: 100%;
+  height: auto;
+  width: auto;
+}
+
+/*
+  First area.
+*/
+.first-area {
+  scroll-margin-top: 20vh;
+  width: 90%;
+  margin: 0 auto;
+}
+
+.first-area :is(h4, p,li, h2) {
+  font-family: 'Montserrat', sans-serif;
+  color: white;
+}
+
+/* .first-area :is(h4, h2) {
+  text-align: center;
+} */
+
+.first-area h2 {
+  text-decoration: underline;
 }
