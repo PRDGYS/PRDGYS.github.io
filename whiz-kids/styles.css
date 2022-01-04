@@ -4,6 +4,7 @@
 */
 :root {
   --main-diagtbr-gradient: linear-gradient(to bottom right, #000000, #7209b7);
+  --rev-diagtbr-gradient: linear-gradient(to bottom right, #7209b7, #000000);
   --main-ltor-gradient: linear-gradient(to right, #f7a9d6, #858ef8);
   --header-height: 10vh;
 }
@@ -154,15 +155,20 @@ h2, h3 {
 }
 
 /*
-  First area.
+  Module standards.
 */
-.first-area {
+
+.module {
   scroll-margin-top: 20vh;
+
   width: 90%;
-  margin: 0 auto;
+  margin: 5vh auto;
+
+  border-top: 3px solid #d3d3d3;
+  border-bottom: 3px solid #d3d3d3;
 }
 
-.first-area :is(h4, p,li, h2) {
+.module :is(h3, h4, p,li, h2) {
   font-family: 'Montserrat', sans-serif;
   color: white;
 }
@@ -171,6 +177,58 @@ h2, h3 {
   text-align: center;
 } */
 
-.first-area h2 {
-  text-decoration: underline;
+.module h2 {
+  /*text-decoration: underline;*/
 }
+
+/*
+  Last area (Team)
+*/
+#last-area-wrapper {
+}
+
+#last-area h4 {
+  font-size: 1.2rem;
+  color: #8014ff;
+}
+
+.bio-flexbox {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+}
+
+.bio-flexbox-row {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+.bio-cell {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+
+  width: 50%;
+  margin-top: 1em;
+}
+
+.bio-cell-right {
+  width: 80%;
+}
+
+.bio-cell-right > div {
+  width: 90%;
+  margin: 0 auto;
+}
+
+.bio-img {
+  width: 8em;
+  height: 8em;
+  border-radius: 50%;
+}
+
+.bio {
+  font-size: 0.8rem;
+}
+

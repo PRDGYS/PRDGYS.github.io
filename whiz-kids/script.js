@@ -15,6 +15,14 @@ document.addEventListener('scroll', function (e) {
  * Event listener for the scrolling divs into view.
  */
 document.getElementById('about-link').addEventListener('click', () => {
-  const aboutPage = document.getElementById('about-area');
+  const aboutPage = document.getElementById('first-area');
+  aboutPage.scrollIntoView({behavior: 'smooth'});
+});
+
+/** 
+ * Event listener for the scrolling divs into view.
+ */
+ document.getElementById('team-link').addEventListener('click', () => {
+  const aboutPage = document.getElementById('last-area');
   aboutPage.scrollIntoView({behavior: 'smooth'});
 });
