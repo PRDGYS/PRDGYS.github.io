@@ -10,8 +10,9 @@ let SMART_CONTRACT_ADDR = "0xb8d72d1f1b98bd2e1e81c05b31a9f53125e7e0ba"
  * token to.
  */
 async function mintToWalletAddress(walletAddress) {
-  const provider = new ethers.providers.Web3Provider(window.ethereum)
-  const signer = provider.getSigner()
+  const provider = new ethers.providers.Web3Provider(window.ethereum);
+  await provider.send("eth_requestAccounts", []);
+  const signer = provider.getSigner();
 
   const contract = new ethers.Contract(
     SMART_CONTRACT_ADDR,
