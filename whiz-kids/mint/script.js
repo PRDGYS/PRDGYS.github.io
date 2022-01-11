@@ -28,5 +28,5 @@ async function mintToWalletAddress(walletAddress) {
  * Event listener for the button.
  */
 document.getElementById('csc').addEventListener('click', () => {
-  logSmartContractInfo(document.getElementById('wallet-id').value);
+  mintToWalletAddress(document.getElementById('wallet-id').value);
 });
