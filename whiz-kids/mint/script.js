@@ -18,9 +18,9 @@ async function mintToWalletAddress(walletAddress) {
     WhizKids.abi,
     signer,
     );
-
-
-    console.log(contract);
+  
+  await contract.mint(walletAddress);
+  console.log('minted');
 }
 
 /**
