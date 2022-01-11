@@ -5,8 +5,7 @@ let WhizKids = require('./WhizKids.json');
 
 let SMART_CONTRACT_ADDR = "0xb8d72d1f1b98bd2e1e81c05b31a9f53125e7e0ba"
 /**
- * Prints WK smart contract info given a smart
- * contract address to the console's log.
+ * Mints token given a specific address.
  * @param {string} walletAddress the address to mint the
  * token to.
  */
