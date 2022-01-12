@@ -149,16 +149,24 @@ h2, h3 {
 }
 
 .opening-content button {
-  background-image: var(--main-ltor-gradient);
+  background: none;
 
   padding: 8px;
 
-  border: none;
+  border: 1px solid white;
   border-radius: 2px;
   
   font-family: Montserrat, sans-serif;
   font-size: 1.2em;
   color: white;
+
+  cursor: pointer;
+
+  transition: 0.5s;
+}
+
+.opening-content button:hover {
+  background: var(--main-ltor-gradient);
 }
 
 #opening-content-img {
