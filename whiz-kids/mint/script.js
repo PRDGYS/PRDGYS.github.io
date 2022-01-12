@@ -28,6 +28,17 @@ async function mintToWalletAddress() {
 /**
  * Event listener for the button.
  */
-document.getElementById('mint-button').addEventListener('click', () => {
-  mintToWalletAddress();
+document.getElementById('mint-button').addEventListener('click', async () => {
+  if (!window.ethereum) {
+    alert('Install Metamask to mint NFTs');
+    return;
+  }
+
+  const chainId = await window.ethereum.request({method: 'eth_chainId'});
+  if (chainId == '0x4'){
+    mintToWalletAddress();
+  } else {
+    alert('You need to connect Rineby testnet to mint.');
+    return;
+  }
 });
