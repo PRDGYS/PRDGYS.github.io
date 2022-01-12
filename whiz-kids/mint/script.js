@@ -28,6 +28,6 @@ async function mintToWalletAddress() {
 /**
  * Event listener for the button.
  */
-document.getElementById('csc').addEventListener('click', () => {
+document.getElementById('mint-button').addEventListener('click', () => {
   mintToWalletAddress();
 });

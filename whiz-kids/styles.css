@@ -148,6 +148,19 @@ h2, h3 {
   font-size: 1.2em;
 }
 
+.opening-content button {
+  background-image: var(--main-ltor-gradient);
+
+  padding: 8px;
+
+  border: none;
+  border-radius: 2px;
+  
+  font-family: Montserrat, sans-serif;
+  font-size: 1.2em;
+  color: white;
+}
+
 #opening-content-img {
   max-width: 100%;
   height: auto;
@@ -213,6 +226,11 @@ h2, h3 {
   margin-top: 1em;
 }
 
+.bio-cell h4 {
+  margin-top: 10px;
+  margin-bottom: 10px; 
+}
+
 .bio-cell-right {
   width: 80%;
 }
@@ -226,6 +244,18 @@ h2, h3 {
   width: 8em;
   height: 8em;
   border-radius: 50%;
+}
+
+.bio-icon-row {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  gap: 10px;
+}
+
+.bio-icon {
+  width: 1.5em;
+  height: 1.5em;
 }
 
 .bio {
