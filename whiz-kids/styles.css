@@ -209,6 +209,7 @@ h2, h3 {
   Last area (Team)
 */
 #last-area-wrapper {
+  margin-top: 100px;
 }
 
 #last-area h4 {
