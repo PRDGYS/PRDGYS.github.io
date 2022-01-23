@@ -3,7 +3,7 @@ let ethers = require('ethers');
 // Contract JSON file
 let WhizKids = require('./WhizKids.json');
 
-let SMART_CONTRACT_ADDR = "0xb8d72d1f1b98bd2e1e81c05b31a9f53125e7e0ba"
+let SMART_CONTRACT_ADDR = "0x38785c2755c71fb2779b20a51ca5bfe66d725301"
 /**
  * Mints token given a specific address.
  * @param {string} walletAddress the address to mint the
@@ -21,7 +21,14 @@ async function mintToWalletAddress() {
     signer,
     );
   
-  await contract.mint(signerAddress);
+  // TODO: Add error handling for when the user doesn't give us
+  // at least 0.5 ETH.
+
+  const ops = {
+    value: ethers.utils.parseEther('0.5'),
+  };
+
+  await contract.mint(signerAddress, ops);
   console.log('minted');
 }
 
