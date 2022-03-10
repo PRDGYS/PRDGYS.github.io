@@ -18,6 +18,13 @@ h2 {
   color: white;
 }
 
+#bytfyth2 {
+  background-image: linear-gradient(to right, #f7a9d6, #858ef8);
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+}
+
 h3 {
   font-size: 16px;
   color: white;

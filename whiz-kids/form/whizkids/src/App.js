@@ -22,10 +22,18 @@ import LocalizationProvider from '@mui/lab/LocalizationProvider';
 import Button from '@mui/material/Button';
 import Stack from '@mui/material/Stack';
 
+// Dialog
+import Dialog from '@mui/material/Dialog';
+import DialogActions from '@mui/material/DialogActions';
+import DialogContent from '@mui/material/DialogContent';
+import DialogContentText from '@mui/material/DialogContentText';
+import DialogTitle from '@mui/material/DialogTitle';
+
 // Firebase
 import {initializeApp} from 'firebase/app';
 import { getFirestore, collection} from 'firebase/firestore';
 import {addDoc} from 'firebase/firestore'
+import { fabClasses } from '@mui/material';
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
@@ -67,9 +75,16 @@ async function sendDataToFirestore() {
     CURRENT_DATA.threeFriends === '' || 
     CURRENT_DATA.yaleEmail === '') {
     alert('Please fill out all fields.')
-    return;
+    return null;
   }
-  await addDoc(collection(db, "entries"), CURRENT_DATA);
+
+  try {
+    await addDoc(collection(db, "entries"), CURRENT_DATA);
+    return true;
+  } catch (error) {
+    console.log(error)
+    return false;
+  }
 }
 
 function createFormGrid() {
@@ -106,7 +121,8 @@ function createFormGrid() {
       <YaleEmailTextField />
     </Grid>
     <Grid item xs={12}>
-      <Button 
+      <DialogSubmit />
+      {/* <Button 
         variant="outlined" 
         style= {{
           backgroundColor: '#8014ff',
@@ -115,16 +131,13 @@ function createFormGrid() {
           fontWeight: 'bold',
         }}
         onClick={sendDataToFirestore}
-        >Join the Whiz Kids</Button>
+        >Join the Whiz Kids</Button> */}
     </Grid>
-    <Grid item xs={6}>
+    <Grid item xs={12}>
       <p style={{fontSize: 12,}}>
         All fields required. We're deleting emails once we start making
         the NFTs, so none of your data will be stored.
       </p>
-    </Grid>
-    <Grid item xs={6}>
-      <h2>By young talent, for young talent.</h2>
     </Grid>
     <Grid item xs={12}>
     <a rel="noreferrer" href="https://www.prdgys.com/whiz-kids/" target="_blank"><h3>prdgys.com/whiz-kids</h3></a>
@@ -241,7 +254,7 @@ export function ThreeFriendsTextField() {
   return (
     <TextField 
       id="textfields" 
-      label="Three Yalies you respect/admire/love" 
+      label="Three Yalies you respect/admire/love (First and last names)" 
       placeholder="(ex: Sunny Agrawal, Trenton Johnson, Rosa Chang)"
       variant="outlined" 
       style= {{
@@ -330,10 +343,15 @@ export function MajorSelects() {
 
   let MAJOR_SELECTIONS = [
     'Computer Science',
-    'Engineering',
-    'Humanities',
-    'Arts/Music',
+    'Economics',
     'Political Science',
+    'Engineering',
+    'Humanities/Psych',
+    'Arts/Music',
+    'Biology/Chemistry',
+    'Physics',
+    'Other Sciences',
+    'Other Humanities',
   ];
 
   const [value, setValue] = React.useState('');
@@ -432,6 +450,65 @@ export function DateSelect() {
           }}/>}
         />
     </LocalizationProvider>
+  );
+}
+
+export function DialogSubmit() {
+  const [open, setOpen] = React.useState(false);
+
+   const handleClickOpen = async () => {
+    const result = await sendDataToFirestore();
+    if (result === null) {
+      return;
+    }
+    setOpen(true);
+  };
+
+  const handleClose = (event, reason) => {
+    if (reason && (reason === "backdropClick" || reason === "escapeKeyDown")) {
+      return;
+    }
+    setOpen(false);
+  };
+
+  return (
+    <div>
+      <Button 
+        variant="outlined" 
+        style= {{
+          backgroundColor: '#8014ff',
+          border: 'none',
+          color: 'black',
+          fontWeight: 'bold',
+        }}
+        onClick={handleClickOpen}
+      >
+        Join The Whiz Kids
+      </Button>
+      <Dialog
+        open={open}
+        onClose={handleClose}
+        aria-labelledby="alert-dialog-title"
+        aria-describedby="alert-dialog-description"
+      >
+        {/* <DialogTitle id="alert-dialog-title">
+          {"Use Google's location service?"}
+        </DialogTitle> */}
+        <DialogContent style={{
+          backgroundColor: '#171717',
+        }}>
+          <DialogContentText id="alert-dialog-description" style={{
+            color: 'white',
+            textAlign: 'center',
+          }}>
+            Info Received. We'll be in touch.
+          </DialogContentText>
+          <DialogContentText>
+            <h2 id="bytfyth2">By young talent, for young talent.</h2>
+          </DialogContentText>
+        </DialogContent>
+      </Dialog>
+    </div>
   );
 }
 
